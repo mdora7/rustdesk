@@ -91,8 +91,16 @@ pub const LANGS: &[(&str, &str)] = &[
 
 #[cfg(not(any(target_os = "android", target_os = "ios")))]
 pub fn translate(name: String) -> String {
-    let locale = sys_locale::get_locale().unwrap_or_default();
-    translate_locale(name, &locale)
+    #[cfg(debug_assertions)]
+    {
+        let locale: &str = "tr-TR";
+        translate_locale(name, &locale)
+    }
+    #[cfg(not(debug_assertions))]
+    {
+        let locale = sys_locale::get_locale().unwrap_or_default();
+        translate_locale(name, &locale)
+    }
 }
 
 pub fn translate_locale(name: String, locale: &str) -> String {
