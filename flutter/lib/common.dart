@@ -2674,11 +2674,11 @@ String getWindowName({WindowType? overrideType}) {
     case WindowType.Main:
       return name;
     case WindowType.FileTransfer:
-      return "File Transfer - $name";
+      return "Dosya Transferi - $name";
     case WindowType.PortForward:
-      return "Port Forward - $name";
+      return "Port Yönlendirme - $name";
     case WindowType.RemoteDesktop:
-      return "Remote Desktop - $name";
+      return "Uzak Masaüstü - $name";
     default:
       break;
   }
